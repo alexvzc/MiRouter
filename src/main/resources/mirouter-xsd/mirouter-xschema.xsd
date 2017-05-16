@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://xml.gda.itesm.mx/schemas/TC4003.1/mirouter/1"
+           targetNamespace="http://xml.gda.itesm.mx/schemas/TC4003.1/mirouter/1"
+           elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:element name="routes" type="tns:routes"/>
+    <xs:complexType name="routes">
+        <xs:sequence>
+            <xs:element name="nodeName" type="xs:token"/>
+            <xs:element name="nodePort" type="xs:short" minOccurs="0"/>
+            <xs:element name="route" type="tns:route" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="route">
+        <xs:sequence>
+            <xs:element name="destination" type="xs:token"/>
+            <xs:element name="nodeAddress" type="xs:normalizedString" minOccurs="0"/>
+            <xs:element name="cost" type="xs:int"/>
+            <xs:element name="link" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="packet" type="tns:packet"/>
+    <xs:complexType name="packet">
+        <xs:sequence>
+            <xs:element name="from" type="xs:token"/>
+            <xs:element name="destination" type="xs:token"/>
+            <xs:element name="visited" type="xs:token" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
+

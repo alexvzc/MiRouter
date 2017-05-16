@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes xmlns='http://xml.gda.itesm.mx/schemas/TC4003.1/mirouter/1'
+        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xsi:schemaLocation='http://xml.gda.itesm.mx/schemas/TC4003.1/mirouter/1
+        mirouter-xsd/mirouter-xschema.xsd'>
+    <nodeName>E</nodeName>
+    <nodePort>10105</nodePort>
+    <route>
+        <destination>B</destination>
+        <cost>1</cost>
+        <link>4</link>
+    </route>
+    <route>
+        <destination>C</destination>
+        <cost>1</cost>
+        <link>5</link>
+    </route>
+    <route>
+        <destination>D</destination>
+        <cost>1</cost>
+        <link>6</link>
+    </route>
+</routes>
