@@ -15,13 +15,14 @@ import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CharsetEncoder;
+import static java.nio.charset.StandardCharsets.UTF_8;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import static org.slf4j.LoggerFactory.getLogger;
 
 /**
  *
@@ -29,10 +30,9 @@ import org.apache.commons.logging.LogFactory;
  */
 public class ConnectionManager {
 
-    private static final Log LOGGER =
-            LogFactory.getLog(ConnectionManager.class);
+    private static final Logger LOGGER = getLogger(ConnectionManager.class);
 
-    private static final Charset DEFAULT_CHARSET = Charset.forName("UTF-8");
+    private static final Charset DEFAULT_CHARSET = UTF_8;
 
     private static final Pattern DATA_MATCHER =
             Pattern.compile("(.*)(\r?\n|\n)");

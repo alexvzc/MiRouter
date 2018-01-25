@@ -24,8 +24,8 @@ import javax.xml.bind.JAXBException;
 import mx.itesm.gda.tc4003_1.mirouter.binding.Packet;
 import mx.itesm.gda.tc4003_1.mirouter.binding.Route;
 import mx.itesm.gda.tc4003_1.mirouter.binding.Routes;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import static org.slf4j.LoggerFactory.getLogger;
 
 /**
  *
@@ -33,7 +33,7 @@ import org.apache.commons.logging.LogFactory;
  */
 public class LinkManager implements Runnable {
 
-    private static final Log LOGGER = LogFactory.getLog(LinkManager.class);
+    private static final Logger LOGGER = getLogger(LinkManager.class);
 
     private static final Pattern ADDR_PATTERN = Pattern.compile(
             "([A-Za-z0-9](?:[-.]?[A-Za-z0-9])*):([0-9]{1,5})");
@@ -195,7 +195,7 @@ public class LinkManager implements Runnable {
                                 perceivedLinkConnections.get(dest_link);
                         dest_cm.send(xmlUtil.generatePacket(packet));
                     }
-                    
+
                 } catch(Exception e) {
                     LOGGER.error("Unable to deliver packet", e);
                 }

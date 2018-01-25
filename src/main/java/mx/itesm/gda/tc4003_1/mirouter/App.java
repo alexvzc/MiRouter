@@ -6,8 +6,8 @@ import java.io.PrintWriter;
 import javax.xml.bind.JAXBException;
 import mx.itesm.gda.tc4003_1.mirouter.binding.Packet;
 import mx.itesm.gda.tc4003_1.mirouter.binding.Routes;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import static org.slf4j.LoggerFactory.getLogger;
 
 /**
  * Hello world!
@@ -15,7 +15,7 @@ import org.apache.commons.logging.LogFactory;
  */
 public class App {
 
-    private static final Log LOGGER = LogFactory.getLog(App.class);
+    private static final Logger LOGGER = getLogger(App.class);
 
     public static void main(String[] args) {
         LOGGER.info("Starting up");
@@ -29,7 +29,7 @@ public class App {
         try {
             routes = new RouteXMLUtil().parseRoutes(args[0]);
         } catch(Exception e) {
-            LOGGER.fatal("Cannot read route file: " + args[0], e);
+            LOGGER.error("Cannot read route file: " + args[0], e);
             return;
         }
 
